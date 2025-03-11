@@ -27,6 +27,7 @@ const Tasks = styled.ul`
    display: flex;
    flex-direction: column;
    gap: ${em(8)};
+   padding: ${em(16)} 0;
 `;
 const SmallItemStyles = css`
    font-size: ${em(16)};
@@ -72,9 +73,13 @@ const TaskList = ({tasks, checkTask}: TaskListProps) => {
             ))}
          </FlexContainer>
          <Tasks>
-            {filteredTasks.map(task => (
-               <Task key={task.id} {...task} toggleTask={checkTask} />
-            ))}
+            {filteredTasks.length ? (
+               filteredTasks.map(task => (
+                  <Task key={task.id} {...task} toggleTask={checkTask} />
+               ))
+            ) : (
+               <SmallText>No Tasks Left</SmallText>
+            )}
          </Tasks>
          <FlexContainer>
             <SmallText>{taskLeft} Items Left</SmallText>
