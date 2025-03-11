@@ -1,0 +1,32 @@
+{
+   "SVG Sprite use": {
+      "scope": "javascript,typescript,javascriptreact,typescriptreact,html",
+      "prefix": "svgu",
+      "body": ["<svg>", "\t<use href=\"/__#$1\" />", "</svg>"],
+   },
+   "Silent Loading without blocking DOM": {
+      "scope": "javascript,typescript,javascriptreact,typescriptreact,html",
+      "prefix": "linkpreload",
+      "body": "<link rel=\"preload\" href=\"$1\" as=\"style\" onload=\"this.onload=null;this.rel=\"stylesheet\"\">",
+   },
+   "Youtube Iframe": {
+      "scope": "javascript,typescript,javascriptreact,typescriptreact,html",
+      "prefix": "yt",
+      "body": "<iframe src=\"${2:https://www.youtube.com/embed/$1}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+   },
+   "Placeholder Image": {
+      "scope": "javascript,typescript,javascriptreact,typescriptreact,html",
+      "prefix": "imgpl",
+      "body": "https://via.placeholder.com/${1:500}.jpg",
+   },
+   "Placeholder Image 2": {
+      "scope": "javascript,typescript,javascriptreact,typescriptreact,html",
+      "prefix": "imgpl2",
+      "body": "https://picsum.photos/${1:500}.jpg",
+   },
+   "Space": {
+      "scope": "javascript,typescript,javascriptreact,typescriptreact,html",
+      "prefix": "space",
+      "body": "&nbsp;",
+   },
+}
