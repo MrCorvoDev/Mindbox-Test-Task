@@ -28,6 +28,16 @@ const Tasks = styled.ul`
    flex-direction: column;
    gap: ${em(8)};
 `;
+const SmallItemStyles = css`
+   font-size: ${em(16)};
+   color: ${props => props.theme.palette.text.dark[0]};
+`;
+const SmallText = styled.p`
+   ${SmallItemStyles}
+`;
+const SmallButton = styled.button`
+   ${SmallItemStyles}
+`;
 
 interface TaskListProps {
    tasks: TasksType;
@@ -40,6 +50,13 @@ const TaskList = ({tasks, checkTask}: TaskListProps) => {
       if (filter === 'Completed' && !task.isDone) return false;
       return true;
    });
+
+   const taskLeft = filteredTasks.filter(task => !task.isDone).length;
+   const clearCompleted = () => {
+      tasks.forEach((task, id) => {
+         if (task.isDone) tasks.delete(id);
+      });
+   };
 
    return (
       <>
@@ -59,6 +76,12 @@ const TaskList = ({tasks, checkTask}: TaskListProps) => {
                <Task key={task.id} {...task} toggleTask={checkTask} />
             ))}
          </Tasks>
+         <FlexContainer>
+            <SmallText>{taskLeft} Items Left</SmallText>
+            <SmallButton type='button' onClick={clearCompleted}>
+               Clear completed
+            </SmallButton>
+         </FlexContainer>
       </>
    );
 };
