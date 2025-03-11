@@ -23,11 +23,10 @@ const HeaderBody = styled(Container)`
 
 interface HeaderProps {
    $isSticky?: boolean | undefined;
-   Color?: Color;
 }
 const HeaderEl = styled.header<HeaderProps>`
    --background: ${props =>
-      Color(props.theme.palette.background.light[1]).alpha(0.6).hexa()};
+      new Color(props.theme.palette.background.light[1]).alpha(0.6).hexa()};
    --blur: ${rem(5)};
    position: fixed;
    width: 100%;
